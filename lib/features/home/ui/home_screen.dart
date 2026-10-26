@@ -25,17 +25,17 @@ class HomeScreen extends StatelessWidget {
             return Center(child: Text('ERROR: ${state.message}'));
           }
           if (state is HomeSuccess) {
-            final user = state.data;
+            final users = state.data;
             return ListView.separated(
               itemBuilder: (context, index) {
                 return ListTile(
-                  leading: CircleAvatar(child: Text('${user[index].id}')),
-                  title: Text(user[index].name),
-                  subtitle: Text(user[index].email),
+                  leading: CircleAvatar(child: Text('${users[index].id}')),
+                  title: Text(users[index].name),
+                  subtitle: Text(users[index].email),
                 );
               },
               separatorBuilder: (_, _) => Divider(),
-              itemCount: user.length,
+              itemCount: users.length,
             );
           }
           return const SizedBox();
