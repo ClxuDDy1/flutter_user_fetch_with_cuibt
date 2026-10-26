@@ -34,24 +34,31 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: .center,
+        child: Stack(
           children: [
-            Spacer(),
-            AnimatedOpacity(
-              duration: Duration(milliseconds: 900),
-              opacity: _opacity,
-              curve: Curves.easeIn,
-              child: Image.asset(AssetConstants.logo),
+            Center(
+              child: AnimatedOpacity(
+                duration: Duration(milliseconds: 900),
+                opacity: _opacity,
+                curve: Curves.easeIn,
+                child: Image.asset(AssetConstants.logo, width: width * 0.45),
+              ),
             ),
-            Spacer(),
-            LoadingAnimationWidget.dotsTriangle(
-              color: Colors.deepPurple,
-              size: 32,
+
+            Align(
+              alignment: .bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 48),
+                child: LoadingAnimationWidget.dotsTriangle(
+                  color: Colors.deepPurple,
+                  size: 32,
+                ),
+              ),
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 48),
           ],
         ),
       ),
