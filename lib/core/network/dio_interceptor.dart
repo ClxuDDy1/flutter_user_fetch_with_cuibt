@@ -28,6 +28,7 @@ class DioInterceptor extends Interceptor {
     debugPrint('STATUS CODE: ${err.response?.statusCode}');
     debugPrint('ERROR TYPE: ${err.type}');
     debugPrint('ERROR: ${err.message}');
+    debugPrint('UNDERLYING: ${err.error}');
     super.onError(err, handler);
   }
 }
